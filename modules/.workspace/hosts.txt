@@ -1,0 +1,24 @@
+          Cell 01 - Address: 00:66:4B:13:9B:74
+                    Channel:11
+                    ESSID:"Gotham"
+          Cell 02 - Address: 74:B5:7E:0A:44:54
+                    Channel:1
+                    ESSID:"3abdo"
+          Cell 03 - Address: 00:66:4B:9C:74:34
+                    Channel:7
+                    ESSID:"BARAKA_COMPANY"
+          Cell 04 - Address: 1C:67:58:F0:55:34
+                    Channel:8
+                    ESSID:"Etisalat-tE2K"
+          Cell 05 - Address: 00:22:6B:F3:44:B4
+                    Channel:11
+                    ESSID:"hamm"
+          Cell 06 - Address: 80:1F:02:F9:8B:62
+                    Channel:13
+                    ESSID:""
+          Cell 07 - Address: 00:4A:77:4E:BF:BC
+                    Channel:9
+                    ESSID:"Eyad Dodo"
+          Cell 08 - Address: 80:1F:02:F9:8B:63
+                    Channel:13
+                    ESSID:""
