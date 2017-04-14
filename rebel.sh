@@ -10,26 +10,24 @@ purp='\e[1;35m'
 green='\e[1;32m'
 white='\e[97m'
 clear
-echo -e "$white                      ______      $red  (                         "
-echo -e "$white                   .-        -.   $red )\ )          )       (    "
-echo -e "$white                  /            \  $red (()/(   (   ( /(    (  )\  "
-echo -e "$white                 /              \ $red  /(_)) ))\  )\())  ))\((_) "
-echo -e "$white                 |,  $red.-.  .-.$white ,| $red  (_))  /((_)((_)\  /((_)_   "
-echo -e "$white                 | )$red(_ /  \_ )$white( | $white | _ \(_))  | |(_)(_)) | |  "
-echo -e "$white                 |/     /\     \| $white |   // -_) | '_ \/ -_)| |  "
-echo -e "$blue         _ $white      <__    ^^    __> $white |_|_|\\___| |_.__/\___||_|  "
-echo -e " $red _     $blue) \_______${white}\__|${red}IIIIII${white}|__/${blue}___________________________"
-echo -e " $red(_)\{}$blue<____________${white}__________${blue}_____________________________|>"
-echo -e " $red      $blue )_/      $white   \ ${red}IIIIII${white} /$green                            ::"
-echo -e "$white                   $white  --------   CODED BY MAGDY MOUSTAFA  $green {}"
-	echo -e "                                                         $green ||"
-	echo -e "$red	|                                                $green ()"
-	echo -e "$red	|__$green Time    --> $( date | awk {' print $4 '} )"
-	echo -e "$red	|__$green User    --> $( whoami )"
-	echo -e "$red	|__$green Clone   --> https://github.com/rebellionil/rebel"
-	echo -e "$red	|__$green Modules --> 6 modules"
+echo -e "$white"
+echo "                                            "
+echo "                  █████              ████ "
+echo "                   ▒▒███              ▒▒███ "
+echo "  ████████   ██████  ▒███████   ██████  ▒███ "
+echo " ▒▒███▒▒███ ███▒▒███ ▒███▒▒███ ███▒▒███ ▒███ "
+echo "  ▒███ ▒▒▒ ▒███████  ▒███ ▒███▒███████  ▒███ "
+echo -e "$red  ▒███     ▒███▒▒▒   ▒███ ▒███▒███▒▒▒   ▒███ "
+echo "  █████    ▒▒██████  ████████ ▒▒██████  █████"
+echo " ▒▒▒▒▒      ▒▒▒▒▒▒  ▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒  ▒▒▒▒▒ "
+        echo -e "$red                                                  "
+        echo -e "$red   |__$green Time    --> $( date | awk {' print $4 '} )"
+        echo -e "$red   |__$green User    --> $( whoami )"
+	echo -e "$red   |__$green Version --> 1.2"
+        echo -e "$red   |__$green Clone   --> https://github.com/rebellionil/rebel"
+        echo -e "$red   |__$green Modules --> 8 modules"
 if ! [[ $( whoami ) == "root" ]] ; then
-	echo -e "$red	|__ Must Run As Root"
+	echo -e "$red   |__ Must Run As Root"
 	exit
 else
 	sleep 0.5
@@ -45,6 +43,8 @@ function modules {
 	echo -e "$red	|__$green brute-r       ${red}==>       ${yellow}Bruteforce wide external subnetmasks "
 	echo -e "$red	|__$green d-out         ${red}==>       ${yellow}Aireplay-ng automation for Deauth APs"
 	echo -e "$red	|__$green lindum        ${red}==>       ${yellow}Dump sites links and extensions"
+	echo -e "$red	|__$green mac-change    ${red}==>       ${yellow}Spoof/hide your mac address"
+	echo -e "$red	|__$green burner        ${red}==>       ${yellow}Burn IMG/ISO files to USB/DVD"
 	echo ""
 }
 function help {
@@ -154,10 +154,10 @@ while true ; do
                         echo -e "${red}[REBEL]"
                         echo -en "${blue}   ↳${yellow}[ map-LAN ]${red} > " ; read opp1 opp2 opp3 opp4
 			if [[ $opp1 == "show" ]] && [[ $opp2 == "options" ]] ; then
-                                echo -e "${red}         options         value           "
-                                echo -e "${yellow}              -------         -----   "
+                                echo -e "${red}	options         value           "
+                                echo -e "${yellow}	-------         -----   "
                                 echo ""
-                                echo -e "${red}         range     $yellow       $range  "
+                                echo -e "${red}	range     $yellow       $range  "
 			elif [[ $opp1 == "show" ]] && [[ $opp2 == "info" ]] ; then
 				echo -e "${blue}	|__ nmap automation for map local area network [LAN]"
 			elif [[ $opp1 == "set" ]] && [[ $opp2 == "range" ]] && [[ ! $opp3 == "" ]] ; then
@@ -282,6 +282,81 @@ while true ; do
                                 break
                         else
                                 echo -e "${blue}           ↳${yellow} W${red}ong option "
+			fi
+		done
+	elif [[ $op1 == "use" ]] && [[ $op2 == "mac-change" ]] ; then
+		interface="wlan0"
+		macaddr="30:cb:55:93:AE:1D"
+                while true ; do
+                        echo -e "${red}[REBEL]"
+                        echo -en "${blue}   ↳${yellow}[ Mac-Change ]${red} > " ; read opp1 opp2 opp3 opp4
+
+			if [[ $opp1 == "show" ]] ; then
+				if [[ $opp2 == "info" ]] ; then
+					echo -e "$blue		|__ This module can give you fake mac address to spoof other machine address or to hide yours"
+				elif [[ $opp2 == "options" ]] ; then
+                                        echo -e "${red}	options		value			ex"
+                                        echo -e "${yellow}	-------		-----			--"
+                                        echo ""
+					echo -e "${blue}	interface	${red}$interface$yellow			'wlan' "
+					echo -e "${blue}	macaddr	$red	$macaddr${yellow}	'30:52:cb:68:94:68'"
+				fi
+			elif [[ $opp1 == "set" ]] ; then
+				if [[ $opp2 == "interface" ]] ; then
+					interface=$opp3
+				elif [[ $opp2 == "macaddr" ]] ; then
+					macaddr=$opp3
+				fi
+			elif [[ $opp1 == "run" ]] ; then
+				echo -e "$red		|${green}+${red}|_ FROM `ifconfig $interface | grep ether | awk {' print $2 '}`"
+				ifconfig $interface down
+				ifconfig $interface hw ether $macaddr
+				ifconfig $interface up
+                                echo -e "$red		|${green}+${red}|_ To `ifconfig $interface | grep ether | awk {' print $2 '}`"
+
+			elif [[ $opp1 == "clear" ]] ; then
+                                clear
+                        elif [[ $opp1 == "back" ]] || [[ $opp1 == "exit" ]] ; then
+                                break
+                        else
+                                echo -e "${blue}           ↳${yellow} W${red}ong option "
+                        fi
+		done
+	elif [[ $op1 == "use" ]] || [[ $op2 == "burner" ]] ; then
+                iso="nul"
+		disk="nul"
+		while true ; do
+                        echo -e "${red}[REBEL]"
+                        echo -en "${blue}   ↳${yellow}[ Burner ]${red} > " ; read opp1 opp2 opp3 opp4
+			if [[ $opp1 == "show" ]] ; then
+				if [[ $opp2 == "options" ]] ; then
+                                        echo -e "${red}	options		value		ex"
+                                        echo -e "${yellow}	-------		-----		--"
+                                        echo ""
+                                        echo -e "${blue}	iso		$iso		kali.iso"
+                                        echo -e "${blue}	disk		$disk		/dev/sdb { use 'show disks' to list disks }"
+				elif [[ $opp2 == "info" ]] ; then
+					echo -e "$blue	|_ THIS modules is able to burn img/iso files on usb/dvd using terminal"
+				elif [[ $opp2 == "disks" ]] ; then
+					echo ""
+					lsblk -p | awk {' print "\t \t"$1"\t"$2"\t"$3"\t"$4"\t"$5"\t"$6"\t"$7 '}
+				fi
+			elif [[ $opp1 == "set" ]] && [[ ! $opp3 == "" ]] ; then
+				if [[ $opp2 == "iso" ]] ; then
+					iso=$opp3
+				elif [[ $opp2 == "disk" ]] ; then
+					disk=$opp3
+				fi
+			elif [[ $opp1 == "run" ]] ; then
+				echo -e "${yellow}		{+} Burnning ,, This can take some time"
+				dd if=$iso of=$disk
+                        elif [[ $opp1 == "clear" ]] ; then
+                                clear
+                        elif [[ $opp1 == "back" ]] || [[ $opp1 == "exit" ]] ; then
+                                break
+                        else
+                                echo -e "${blue}           ↳${yellow} W${red}ong option"
+
 			fi
 		done
 	elif [[ $op1 == "clear" ]] ; then
